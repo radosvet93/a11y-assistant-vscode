@@ -1,0 +1,64 @@
+{
+  "name": "a11y-assistant",
+  "displayName": "Accessibility Assistant",
+  "description": "A tiny accessibility vscode extension to detect and explain common accessibility issues",
+  "version": "0.1.0",
+  "author": "Radosvet Petrov",
+  "license": "MIT",
+  "repository": "https://github.com/radosvet93/a11y-assistant-vscode",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:html",
+    "onStartupFinished"
+  ],
+  "main": "./out/main.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "html",
+        "extensions": [
+          ".html",
+          ".htm"
+        ],
+        "aliases": [
+          "HTML",
+          "htm"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run esbuild-base && pnpm run copy-workers",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --minify",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies",
+    "copy-workers": "cpy \"node_modules/**/jsdom/lib/jsdom/living/xhr/xhr-sync-worker.js\" out/ --flat"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.3.0",
+    "@types/vscode": "^1.103.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "cpy-cli": "^6.0.0",
+    "esbuild": "^0.25.9",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "a11y-assistant": "^0.10.0"
+  }
+}
