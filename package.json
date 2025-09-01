@@ -4,6 +4,7 @@
   "description": "A tiny accessibility vscode extension to detect and explain common accessibility issues",
   "version": "0.1.0",
   "author": "Radosvet Petrov",
+  "publisher": "radosvet",
   "license": "MIT",
   "repository": "https://github.com/radosvet93/a11y-assistant-vscode",
   "engines": {
