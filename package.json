@@ -1,5 +1,5 @@
 {
-  "name": "a11y-assistant",
+  "name": "a11y-assistant-vscode",
   "displayName": "Accessibility Assistant",
   "description": "A tiny accessibility vscode extension to detect and explain common accessibility issues",
   "version": "0.1.0",
