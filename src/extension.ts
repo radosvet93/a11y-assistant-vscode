@@ -6,12 +6,29 @@ export function activate(context: vscode.ExtensionContext) {
 	const diagnosticCollection = vscode.languages.createDiagnosticCollection('a11y-assistant');
 	context.subscriptions.push(diagnosticCollection);
 
-	vscode.workspace.onDidSaveTextDocument(doc => {
-		runA11yAnalysis(doc, diagnosticCollection);
-	});
+	// Run analysis when an HTML document is saved
+	context.subscriptions.push(
+		vscode.workspace.onDidSaveTextDocument(doc => {
+			if (doc.languageId === "html") {
+				runA11yAnalysis(doc, diagnosticCollection);
+			}
+		})
+	);
 
-	vscode.workspace.onDidOpenTextDocument(doc => {
-		runA11yAnalysis(doc, diagnosticCollection);
+	// Run analysis when an HTML document is opened
+	context.subscriptions.push(
+		vscode.workspace.onDidOpenTextDocument(doc => {
+			if (doc.languageId === "html") {
+				runA11yAnalysis(doc, diagnosticCollection);
+			}
+		})
+	);
+
+	// Run analysis on already opened HTML docs when VS Code starts
+	vscode.workspace.textDocuments.forEach(doc => {
+		if (doc.languageId === "html") {
+			runA11yAnalysis(doc, diagnosticCollection);
+		}
 	});
 }
 

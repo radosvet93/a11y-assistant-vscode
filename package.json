@@ -2,7 +2,7 @@
   "name": "a11y-assistant-vscode",
   "displayName": "Accessibility Assistant",
   "description": "A tiny accessibility vscode extension to detect and explain common accessibility issues",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Radosvet Petrov",
   "publisher": "radosvet",
   "license": "MIT",
@@ -15,8 +15,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:html",
-    "onStartupFinished"
+    "onLanguage:html"
   ],
   "main": "./out/main.js",
   "contributes": {
