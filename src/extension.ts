@@ -23,8 +23,8 @@ async function runA11yAnalysis(
 	const results = await analyseHtml(content);
 
 	const diagnostics: vscode.Diagnostic[] = results.map((issue: CustomViolation) => {
-		const line = issue.nodes?.[0]?.line ?? 1;
-		const column = issue.nodes?.[0]?.column ?? 1;
+		const line = Math.max(issue.nodes?.[0]?.line ?? 1, 1); // It will always return greater than 1
+		const column = Math.max(issue.nodes?.[0]?.column ?? 1, 1);
 
 		const range = new vscode.Range(
 			new vscode.Position(line - 1, column - 1),
