@@ -1,6 +1,7 @@
 # a11y-assistant-vscode
 
-`a11y-assistant` is a **Visual Studio Code extension** that helps you detect and fix accessibility issues in your HTML files. It integrates with the core [`a11y-assistant`](https://www.npmjs.com/package/a11y-assistant) library to analyse your code and surface actionable diagnostics directly in your editor.
+`a11y-assistant` is a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=radosvet.a11y-assistant-vscode) that helps you detect and fix accessibility issues in your HTML files. It integrates with the core [`a11y-assistant`](https://www.npmjs.com/package/a11y-assistant) library to analyse your code and surface actionable diagnostics directly in your editor.
+
 
 ---
 
